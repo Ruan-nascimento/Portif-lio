@@ -3,10 +3,6 @@
 import { useLanguage } from "@/providers/LanguageProvider";
 import { motion, AnimatePresence } from "framer-motion";
 
-/**
- * Botão fixo no canto superior direito para alternar PT ↔ EN.
- * Estilo glassmorphic para combinar com o restante do site.
- */
 export default function LanguageToggle() {
     const { locale, toggleLanguage } = useLanguage();
 
@@ -27,9 +23,9 @@ export default function LanguageToggle() {
                     className="inline-flex items-center gap-1.5"
                 >
                     <span className="text-base leading-none">
-                        {locale === "pt" ? "🇺🇸" : "🇧🇷"}
+                        {locale != "pt" ? "🇺🇸" : "🇧🇷"}
                     </span>
-                    <span>{locale === "pt" ? "EN" : "PT"}</span>
+                    <span>{locale != "pt" ? "EN" : "PT"}</span>
                 </motion.span>
             </AnimatePresence>
         </button>
