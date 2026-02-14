@@ -32,18 +32,20 @@ export default function ContactSection() {
     const { t } = useLanguage();
     const [formState, setFormState] = useState({
         nome: "",
-        email: "",
         mensagem: "",
     });
     const [sent, setSent] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const subject = encodeURIComponent(`${t("contact.mailto.subject")} — ${formState.nome}`);
-        const body = encodeURIComponent(
-            `${t("contact.form.name")}: ${formState.nome}\nEmail: ${formState.email}\n\n${t("contact.form.message")}:\n${formState.mensagem}`
-        );
-        window.open(`mailto:?subject=${subject}&body=${body}`, "_blank");
+        const phoneNumber = "5582991210862";
+        const messageTemplate = t("contact.whatsapp.message");
+        const formattedMessage = messageTemplate
+            .replace("{name}", formState.nome)
+            .replace("{message}", formState.mensagem);
+
+        const text = encodeURIComponent(formattedMessage);
+        window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
         setSent(true);
         setTimeout(() => setSent(false), 4000);
     };
@@ -76,22 +78,7 @@ export default function ContactSection() {
                                         input: "text-zinc-100",
                                     }}
                                 />
-                                <Input
-                                    label={t("contact.form.email")}
-                                    placeholder="seu@email.com"
-                                    type="email"
-                                    isRequired
-                                    value={formState.email}
-                                    onValueChange={(v) =>
-                                        setFormState((s) => ({ ...s, email: v }))
-                                    }
-                                    classNames={{
-                                        inputWrapper:
-                                            "bg-zinc-800/50 border border-zinc-700/50 hover:border-sky-500/30 focus-within:border-sky-500/50",
-                                        label: "text-zinc-400",
-                                        input: "text-zinc-100",
-                                    }}
-                                />
+
                                 <Textarea
                                     label={t("contact.form.message")}
                                     placeholder={t("contact.form.message.placeholder")}

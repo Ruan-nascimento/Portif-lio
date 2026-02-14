@@ -88,52 +88,52 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "My learning and growth journey.",
     },
     "timeline.item1.date": {
-        pt: "2024 - Presente",
-        en: "2024 - Present",
+        pt: "2025 - Presente",
+        en: "2025 - Present",
     },
     "timeline.item1.title": {
-        pt: "Desenvolvimento Full Stack",
-        en: "Full Stack Development",
+        pt: "Graduação em Ciências da Computação",
+        en: "Computer Science Graduation",
     },
     "timeline.item1.institution": {
-        pt: "Projetos Pessoais & Freelance",
-        en: "Personal Projects & Freelance",
+        pt: "Centro Universitário UNINASSAU",
+        en: "UNINASSAU University Center",
     },
     "timeline.item1.description": {
-        pt: "Construção de aplicações completas com Next.js, TypeScript, Prisma e PostgreSQL. Foco em boas práticas, arquitetura limpa e deploy em produção.",
-        en: "Building complete applications with Next.js, TypeScript, Prisma and PostgreSQL. Focus on best practices, clean architecture and production deployment.",
-    },
-    "timeline.item2.date": {
-        pt: "2023 - 2024",
-        en: "2023 - 2024",
-    },
-    "timeline.item2.title": {
-        pt: "Formação em Desenvolvimento Web",
-        en: "Web Development Training",
-    },
-    "timeline.item2.institution": {
-        pt: "Estudo Autodidata & Cursos Online",
-        en: "Self-taught & Online Courses",
-    },
-    "timeline.item2.description": {
-        pt: "Aprofundamento em React, Node.js, bancos de dados e ferramentas modernas de desenvolvimento. Certificações e projetos práticos entregues.",
-        en: "Deep dive into React, Node.js, databases and modern development tools. Certifications and practical projects delivered.",
+        pt: "Aprendizado e Desenvolvimento desde boas práticas, banco de dados, web, mobile, arquitetura e system design, até algoritmos e estruturas de dados.",
+        en: "Learning and Development from best practices, databases, web, mobile, architecture and system design, to algorithms and data structures.",
     },
     "timeline.item3.date": {
-        pt: "2022 - 2023",
-        en: "2022 - 2023",
+        pt: "2021 - 2022",
+        en: "2021 - 2022",
     },
     "timeline.item3.title": {
-        pt: "Fundamentos de Programação",
-        en: "Programming Fundamentals",
+        pt: "Formação Técnica em Ciência de Dados",
+        en: "Technical Training in Data Science",
     },
     "timeline.item3.institution": {
-        pt: "Primeiros Passos",
-        en: "First Steps",
+        pt: "Escola Técnica Dinamica Treinamentos (DNC)",
+        en: "DNC Technical School",
     },
     "timeline.item3.description": {
-        pt: "Início dos estudos em lógica de programação, HTML, CSS, JavaScript e versionamento com Git.",
-        en: "Started studying programming logic, HTML, CSS, JavaScript and version control with Git.",
+        pt: "Aprofundamento e analise de dados e estatistica com python, machine learning, organização e preparação dos dados e métodos ágeis",
+        en: "In-depth analysis of data and statistics using Python, machine learning, data organization and preparation, and agile methodologies.",
+    },
+    "timeline.item2.date": {
+        pt: "2024 - 2025",
+        en: "2024 - 2025",
+    },
+    "timeline.item2.title": {
+        pt: "Curso FullStack",
+        en: "FullStack Course",
+    },
+    "timeline.item2.institution": {
+        pt: "O Novo Programador, Escola de Programação Online",
+        en: "The New Programmer, Online Programming School",
+    },
+    "timeline.item2.description": {
+        pt: "Aprendendo Desde Lógica básica de Programação, até projetos simples em Typescript, React, Node.js, banco de dados SQL",
+        en: "Learning from basic programming logic to simple projects in Typescript, React, Node.js, SQL databases.",
     },
 
     // ── Projects ──
@@ -222,8 +222,12 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Send",
     },
     "contact.form.sent": {
-        pt: "Mensagem preparada!",
-        en: "Message prepared!",
+        pt: "Redirecionando...",
+        en: "Redirecting...",
+    },
+    "contact.whatsapp.message": {
+        pt: "Olá Ruan Carlos, me chamo {name}...\n\n{message}",
+        en: "Hi Ruan Carlos, my name is {name}...\n\n{message}",
     },
     "contact.social.title": {
         pt: "Me encontra aqui",
