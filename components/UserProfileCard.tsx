@@ -33,7 +33,7 @@ export default function UserProfileCard() {
                     <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-sky-400 to-sky-600 opacity-40 blur-md transition-all duration-500 group-hover:opacity-70 group-hover:blur-lg" />
                     <Avatar
                         color="primary"
-                        src="/Eu.png"
+                        src="/eu.jpeg"
                         showFallback
                         name="RC"
                         size="lg"
