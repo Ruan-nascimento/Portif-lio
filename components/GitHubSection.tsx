@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { Card, CardBody, Chip, Button, Link, Skeleton } from "@heroui/react";
 import { FiStar, FiExternalLink, FiGithub } from "react-icons/fi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ScrollReveal from "./ScrollReveal";
 import SectionHeading from "./SectionHeading";
 import { useLanguage } from "@/providers/LanguageProvider";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface GitHubRepo {
     id: number;
@@ -106,71 +112,87 @@ export default function GitHubSection() {
                 </ScrollReveal>
             )}
 
-            {/* Repos Grid */}
+            {/* Repos Carousel */}
             {!loading && !error && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {repos.map((repo, index) => (
-                        <ScrollReveal key={repo.id} delay={index * 0.08} variant="fadeUp">
-                            <Card className="glass-card h-full border-zinc-800/50 bg-zinc-900/30 group">
-                                <CardBody className="flex flex-col gap-3 p-5">
-                                    {/* Repo Name */}
-                                    <Link
-                                        href={repo.html_url}
-                                        isExternal
-                                        className="text-base font-semibold text-zinc-100 hover:text-sky-300 transition-colors flex items-center gap-2"
-                                    >
-                                        {repo.name}
-                                        <FiExternalLink
-                                            size={14}
-                                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                                        />
-                                    </Link>
-
-                                    {/* Description */}
-                                    {repo.description && (
-                                        <p className="text-sm text-zinc-400 leading-relaxed line-clamp-2">
-                                            {repo.description}
-                                        </p>
-                                    )}
-
-                                    {/* Meta */}
-                                    <div className="flex items-center gap-3 mt-auto pt-2 flex-wrap">
-                                        {repo.language && (
-                                            <div className="flex items-center gap-1.5">
-                                                <span
-                                                    className="h-2.5 w-2.5 rounded-full"
-                                                    style={{
-                                                        backgroundColor:
-                                                            LANGUAGE_COLORS[repo.language] || "#8b8b8b",
-                                                    }}
-                                                />
-                                                <span className="text-xs text-zinc-400">
-                                                    {repo.language}
-                                                </span>
-                                            </div>
-                                        )}
-                                        {repo.stargazers_count > 0 && (
-                                            <div className="flex items-center gap-1 text-zinc-500">
-                                                <FiStar size={12} />
-                                                <span className="text-xs">{repo.stargazers_count}</span>
-                                            </div>
-                                        )}
-                                        <Chip
-                                            size="sm"
-                                            variant="flat"
-                                            classNames={{
-                                                base: "bg-zinc-800/60",
-                                                content: "text-zinc-500 text-xs",
-                                            }}
+                <ScrollReveal>
+                    <div className="github-swiper-wrapper">
+                    <Swiper
+                        modules={[Navigation, Pagination, Autoplay]}
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                        loop
+                        breakpoints={{
+                            640: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                        className="github-swiper"
+                    >
+                        {repos.map((repo) => (
+                            <SwiperSlide key={repo.id} className="!h-auto">
+                                <Card className="glass-card border-zinc-800/50 bg-zinc-900/30 group github-repo-card">
+                                    <CardBody className="flex flex-col gap-3 p-5">
+                                        {/* Repo Name */}
+                                        <Link
+                                            href={repo.html_url}
+                                            isExternal
+                                            className="text-base font-semibold text-zinc-100 hover:text-sky-300 transition-colors flex items-center gap-2"
                                         >
-                                            {formatDate(repo.updated_at)}
-                                        </Chip>
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </ScrollReveal>
-                    ))}
-                </div>
+                                            {repo.name}
+                                            <FiExternalLink
+                                                size={14}
+                                                className="opacity-0 group-hover:opacity-100 transition-opacity"
+                                            />
+                                        </Link>
+
+                                        {/* Description — truncada com ellipsis */}
+                                        <p className="text-sm text-zinc-400 leading-relaxed line-clamp-2">
+                                            {repo.description || "Sem descrição disponível."}
+                                        </p>
+
+                                        {/* Meta */}
+                                        <div className="flex items-center gap-3 mt-auto pt-2 flex-wrap">
+                                            {repo.language && (
+                                                <div className="flex items-center gap-1.5">
+                                                    <span
+                                                        className="h-2.5 w-2.5 rounded-full"
+                                                        style={{
+                                                            backgroundColor:
+                                                                LANGUAGE_COLORS[repo.language] || "#8b8b8b",
+                                                        }}
+                                                    />
+                                                    <span className="text-xs text-zinc-400">
+                                                        {repo.language}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {repo.stargazers_count > 0 && (
+                                                <div className="flex items-center gap-1 text-zinc-500">
+                                                    <FiStar size={12} />
+                                                    <span className="text-xs">{repo.stargazers_count}</span>
+                                                </div>
+                                            )}
+                                            <Chip
+                                                size="sm"
+                                                variant="flat"
+                                                classNames={{
+                                                    base: "bg-zinc-800/60",
+                                                    content: "text-zinc-500 text-xs",
+                                                }}
+                                            >
+                                                {formatDate(repo.updated_at)}
+                                            </Chip>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    </div>
+                </ScrollReveal>
             )}
         </section>
     );

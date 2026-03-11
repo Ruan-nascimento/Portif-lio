@@ -1,7 +1,10 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { type ReactNode } from "react";
+import { useRef, useEffect, type ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type RevealVariant = "fadeUp" | "fadeLeft" | "fadeRight" | "scale" | "fadeDown";
 
@@ -14,51 +17,64 @@ interface ScrollRevealProps {
     once?: boolean;
 }
 
-const variants: Record<RevealVariant, Variants> = {
-    fadeUp: {
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0 },
-    },
-    fadeDown: {
-        hidden: { opacity: 0, y: -40 },
-        visible: { opacity: 1, y: 0 },
-    },
-    fadeLeft: {
-        hidden: { opacity: 0, x: -40 },
-        visible: { opacity: 1, x: 0 },
-    },
-    fadeRight: {
-        hidden: { opacity: 0, x: 40 },
-        visible: { opacity: 1, x: 0 },
-    },
-    scale: {
-        hidden: { opacity: 0, scale: 0.85 },
-        visible: { opacity: 1, scale: 1 },
-    },
+const variantConfig: Record<RevealVariant, gsap.TweenVars> = {
+    fadeUp:    { y: 50,  opacity: 0 },
+    fadeDown:  { y: -50, opacity: 0 },
+    fadeLeft:  { x: -50, opacity: 0 },
+    fadeRight: { x: 50,  opacity: 0 },
+    scale:    { scale: 0.85, opacity: 0 },
 };
 
 export default function ScrollReveal({
     children,
     variant = "fadeUp",
     delay = 0,
-    duration = 0.6,
+    duration = 0.7,
     className = "",
     once = true,
 }: ScrollRevealProps) {
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+
+        const fromVars = variantConfig[variant];
+
+        gsap.set(el, fromVars);
+
+        const tween = gsap.to(el, {
+            ...Object.fromEntries(
+                Object.keys(fromVars).map((key) => [
+                    key,
+                    key === "opacity" ? 1 : key === "scale" ? 1 : 0,
+                ])
+            ),
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration,
+            delay,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: once
+                    ? "play none none none"
+                    : "play none none reverse",
+            },
+        });
+
+        return () => {
+            tween.scrollTrigger?.kill();
+            tween.kill();
+        };
+    }, [variant, delay, duration, once]);
+
     return (
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once, margin: "-60px" }}
-            variants={variants[variant]}
-            transition={{
-                duration,
-                delay,
-                ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className={className}
-        >
+        <div ref={ref} className={className} style={{ willChange: "transform, opacity" }}>
             {children}
-        </motion.div>
+        </div>
     );
 }

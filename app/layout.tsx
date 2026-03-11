@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import CustomCursor from "@/components/CustomCursor";
+import ParticleField from "@/components/ParticleField";
 import TimelineNav from "@/components/TimelineNav";
 import LanguageToggle from "@/components/LanguageToggle";
 import { LanguageProvider } from "@/providers/LanguageProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -38,15 +39,17 @@ export default function RootLayout({
       <body
         className={`${jetbrains.variable} antialiased`}
       >
-        <Providers>
-          <LanguageProvider>
-            <AnimatedBackground />
-            <CustomCursor />
-            <LanguageToggle />
-            <TimelineNav />
-            <div className="relative z-10 main-content">{children}</div>
-          </LanguageProvider>
-        </Providers>
+        <SmoothScroll>
+          <Providers>
+            <LanguageProvider>
+              <AnimatedBackground />
+              <ParticleField />
+              <LanguageToggle />
+              <TimelineNav />
+              <div className="relative z-10 main-content">{children}</div>
+            </LanguageProvider>
+          </Providers>
+        </SmoothScroll>
       </body>
     </html>
   );

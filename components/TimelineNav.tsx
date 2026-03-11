@@ -1,97 +1,180 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useLanguage } from "@/providers/LanguageProvider";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const NAV_KEYS = [
     { id: "inicio", labelKey: "nav.inicio" },
     { id: "sobre", labelKey: "nav.sobre" },
     { id: "formacoes", labelKey: "nav.formacoes" },
     { id: "projetos", labelKey: "nav.projetos" },
-    { id: "github", labelKey: "nav.github" },
+
     { id: "contato", labelKey: "nav.contato" },
 ];
 
 export default function TimelineNav() {
     const { t } = useLanguage();
     const [activeIndex, setActiveIndex] = useState(0);
-    const [fillHeight, setFillHeight] = useState(0);
     const trackRef = useRef<HTMLDivElement>(null);
+    const fillRef = useRef<HTMLDivElement>(null);
     const dotsRef = useRef<(HTMLButtonElement | null)[]>([]);
+    const triggersRef = useRef<ScrollTrigger[]>([]);
 
-    const handleScroll = useCallback(() => {
-        const scrollY = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = Math.min(scrollY / docHeight, 1);
-
-        if (trackRef.current && dotsRef.current.length > 0) {
-            const trackRect = trackRef.current.getBoundingClientRect();
-            const maxHeight = trackRect.height;
-            setFillHeight(progress * maxHeight);
-        }
-
-        const sections = NAV_KEYS.map(item => document.getElementById(item.id));
-        let currentIndex = 0;
-
-        for (let i = sections.length - 1; i >= 0; i--) {
-            const section = sections[i];
-            if (section) {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight * 0.4) {
-                    currentIndex = i;
-                    break;
-                }
-            }
-        }
-        setActiveIndex(currentIndex);
-    }, []);
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [handleScroll]);
-
-    const scrollTo = (id: string) => {
+    /* Scroll suave ao clicar */
+    const scrollTo = useCallback((id: string) => {
         const el = document.getElementById(id);
         if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            ScrollTrigger.create({
+                trigger: document.documentElement,
+                start: "top top",
+                end: "bottom bottom",
+                onUpdate: (self) => {
+                    /* Atualiza linha de progresso */
+                    if (fillRef.current && trackRef.current) {
+                        const trackHeight = trackRef.current.offsetHeight;
+                        gsap.to(fillRef.current, {
+                            height: self.progress * trackHeight,
+                            duration: 0.3,
+                            ease: "power2.out",
+                            overwrite: true,
+                        });
+                    }
+
+                    /* Detecta seção ativa: qual ocupa mais espaço na viewport */
+                    const vh = window.innerHeight;
+                    const scrollY = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight;
+
+                    /* Se estiver no fundo, ativa o último item de forma confiável (útil para mobile chrome) */
+                    if (self.progress >= 0.98) {
+                        setActiveIndex(NAV_KEYS.length - 1);
+                        return;
+                    }
+
+                    let bestIndex = 0;
+                    let bestVisibility = -1;
+
+                    NAV_KEYS.forEach((item, index) => {
+                        const section = document.getElementById(item.id);
+                        if (!section) return;
+
+                        const rect = section.getBoundingClientRect();
+                        const visibleTop = Math.max(0, rect.top);
+                        const visibleBottom = Math.min(vh, rect.bottom);
+                        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+                        /* Peso extra para seções que estão no topo da viewport */
+                        const topBias = rect.top <= vh * 0.4 && rect.top >= -rect.height * 0.5 ? 1.2 : 1;
+                        const weighted = visibleHeight * topBias;
+
+                        if (weighted > bestVisibility) {
+                            bestVisibility = weighted;
+                            bestIndex = index;
+                        }
+                    });
+
+                    setActiveIndex(bestIndex);
+                },
+            });
+        });
+
+        return () => {
+            ctx.revert();
+            triggersRef.current = [];
+        };
+    }, []);
+
+    /* Anima os dots quando activeIndex muda */
+    useEffect(() => {
+        dotsRef.current.forEach((dot, i) => {
+            if (!dot) return;
+            const icon = dot.querySelector(".timeline-nav__icon") as HTMLElement;
+
+            if (i <= activeIndex) {
+                gsap.to(dot, {
+                    scale: i === activeIndex ? 1.35 : 1.15,
+                    duration: 0.4,
+                    ease: "back.out(1.7)",
+                    overwrite: true,
+                });
+                if (icon) {
+                    gsap.to(icon, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.3,
+                        delay: 0.1,
+                        ease: "power2.out",
+                    });
+                }
+            } else {
+                gsap.to(dot, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out",
+                    overwrite: true,
+                });
+                if (icon) {
+                    gsap.to(icon, {
+                        opacity: 0,
+                        scale: 0.5,
+                        duration: 0.2,
+                        ease: "power2.in",
+                    });
+                }
+            }
+        });
+    }, [activeIndex]);
 
     return (
         <>
-            {/* Desktop: vertical sidebar */}
+            {/* Desktop: barra lateral vertical */}
             <nav className="timeline-nav" aria-label="Section navigation">
-                <div ref={trackRef} className="relative flex flex-col items-center gap-8" style={{ height: "auto" }}>
-                    {/* Track line */}
-                    <div
-                        className="timeline-nav__line-track"
-                        style={{
-                            top: dotsRef.current[0] ? "6px" : "0",
-                            bottom: dotsRef.current[dotsRef.current.length - 1] ? "6px" : "0",
-                        }}
-                    />
-                    {/* Fill line */}
-                    <div
-                        className="timeline-nav__line-fill"
-                        style={{
-                            top: "6px",
-                            height: `${fillHeight}px`,
-                        }}
-                    />
+                <div
+                    ref={trackRef}
+                    className="timeline-nav__track"
+                >
+                    {/* Linha de fundo (track) */}
+                    <div className="timeline-nav__line-track" />
+                    {/* Linha de progresso (fill) */}
+                    <div ref={fillRef} className="timeline-nav__line-fill" />
 
                     {NAV_KEYS.map((item, index) => {
                         const label = t(item.labelKey);
+                        const isActive = index <= activeIndex;
+                        const isCurrent = index === activeIndex;
+
                         return (
                             <button
                                 key={item.id}
                                 ref={(el) => { dotsRef.current[index] = el; }}
                                 onClick={() => scrollTo(item.id)}
-                                className={`timeline-nav__dot ${index <= activeIndex ? "timeline-nav__dot--active" : ""}`}
+                                className={`timeline-nav__dot ${isActive ? "timeline-nav__dot--active" : ""} ${isCurrent ? "timeline-nav__dot--current" : ""}`}
                                 aria-label={`${t("nav.inicio") === "Início" ? "Ir para" : "Go to"} ${label}`}
                                 title={label}
                             >
+                                {/* Ícone de check dentro do dot */}
+                                <span className="timeline-nav__icon">
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                        <path
+                                            d="M2.5 5L4.5 7L7.5 3"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </span>
+                                {/* Label tooltip */}
                                 <span className="timeline-nav__label">{label}</span>
                             </button>
                         );
@@ -99,20 +182,28 @@ export default function TimelineNav() {
                 </div>
             </nav>
 
-            {/* Mobile: bottom nav bar */}
+            {/* Mobile: bottom nav */}
             <nav className="mobile-nav" aria-label="Section navigation (mobile)">
-                {NAV_KEYS.map((item, index) => {
-                    const label = t(item.labelKey);
-                    return (
-                        <button
-                            key={item.id}
-                            onClick={() => scrollTo(item.id)}
-                            className={`mobile-nav__dot ${index === activeIndex ? "mobile-nav__dot--active" : ""}`}
-                            aria-label={`${t("nav.inicio") === "Início" ? "Ir para" : "Go to"} ${label}`}
-                            title={label}
-                        />
-                    );
-                })}
+                <div className="mobile-nav__inner">
+                    {NAV_KEYS.map((item, index) => {
+                        const label = t(item.labelKey);
+                        const isCurrent = index === activeIndex;
+
+                        return (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollTo(item.id)}
+                                className={`mobile-nav__dot ${isCurrent ? "mobile-nav__dot--active" : ""}`}
+                                aria-label={`${t("nav.inicio") === "Início" ? "Ir para" : "Go to"} ${label}`}
+                                title={label}
+                            >
+                                {isCurrent && (
+                                    <span className="mobile-nav__label">{label}</span>
+                                )}
+                            </button>
+                        );
+                    })}
+                </div>
             </nav>
         </>
     );
