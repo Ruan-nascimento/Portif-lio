@@ -541,3 +541,18 @@ textarea,
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== 404: Esconde navegação ===== */
+body.is-not-found .timeline-nav,
+body.is-not-found .mobile-nav,
+body.is-not-found .language-toggle {
+  display: none !important;
+}
+
+body.is-not-found .main-content {
+  margin-left: 0 !important;
+}
+
+body.is-not-found {
+  padding-bottom: 0 !important;
+}

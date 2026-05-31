@@ -273,4 +273,30 @@ export const translations: Record<string, Record<Locale, string>> = {
         pt: "Contato",
         en: "Contact",
     },
+
+    // ── 404 ──
+    "notFound.title": {
+        pt: "Parece que você se perdeu",
+        en: "Looks like you're lost",
+    },
+    "notFound.description": {
+        pt: "A página que você procura não existe ou foi movida.",
+        en: "The page you are looking for doesn't exist or has been moved.",
+    },
+    "notFound.redirect": {
+        pt: "Redirecionando para a página inicial em",
+        en: "Redirecting to the home page in",
+    },
+    "notFound.seconds": {
+        pt: "segundos",
+        en: "seconds",
+    },
+    "notFound.goHome": {
+        pt: "Voltar ao Início",
+        en: "Go to Home",
+    },
+    "notFound.goBack": {
+        pt: "Página Anterior",
+        en: "Go Back",
+    },
 };
