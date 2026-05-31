@@ -115,6 +115,178 @@ body {
   position: relative;
 }
 
+/* ===== Poetic Quote Block ===== */
+
+.poetic-quote {
+  position: relative;
+  background: linear-gradient(135deg, rgba(39, 39, 42, 0.45), rgba(24, 24, 27, 0.6));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  padding: 3rem 2.5rem 2rem;
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Barra lateral gradiente (substitui border-image que conflita com border-radius) */
+.poetic-quote::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--sky-400), var(--sky-600), transparent);
+  pointer-events: none;
+}
+
+.poetic-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 0% 0%, rgba(56, 189, 248, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.poetic-quote:hover {
+  box-shadow:
+    0 8px 40px rgba(14, 165, 233, 0.08),
+    0 0 80px rgba(56, 189, 248, 0.04);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* Aspas decorativas — abertura */
+.poetic-quote__open {
+  position: absolute;
+  top: 1rem;
+  left: 1.25rem;
+  width: 40px;
+  height: 40px;
+  color: var(--sky-400);
+  opacity: 0.2;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.3));
+}
+
+/* Aspas decorativas — fechamento */
+.poetic-quote__close {
+  position: absolute;
+  bottom: 3.5rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  color: var(--sky-400);
+  opacity: 0.15;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.3));
+}
+
+/* Corpo da citação */
+.poetic-quote__body {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.poetic-quote__text {
+  font-family: 'Georgia', 'Times New Roman', 'Noto Serif', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--zinc-300);
+  letter-spacing: 0.01em;
+  text-indent: 1.5em;
+}
+
+/* Rodapé / Atribuição */
+.poetic-quote__footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+.poetic-quote__dash {
+  font-family: 'Georgia', serif;
+  font-size: 1.25rem;
+  color: var(--sky-400);
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.poetic-quote__author-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.poetic-quote__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.25);
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.poetic-quote__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.poetic-quote__author {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--zinc-100);
+  letter-spacing: 0.02em;
+}
+
+.poetic-quote__label {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--sky-400);
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .poetic-quote {
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 0 14px 14px 0;
+  }
+
+  .poetic-quote__open {
+    width: 28px;
+    height: 28px;
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .poetic-quote__close {
+    width: 22px;
+    height: 22px;
+    bottom: 3rem;
+    right: 0.75rem;
+  }
+}
+
+
 /* Desktop: offset for timeline nav */
 @media (min-width: 1024px) {
   .main-content {
@@ -516,18 +688,50 @@ body {
 }
 
 /* ===== Custom Cursor ===== */
+
+/* Cursor padrão (seta) — aplicado globalmente */
 html,
 body,
 *,
 *::before,
-*::after,
+*::after {
+  cursor: url('/cursor-normal.png') 2 2, auto !important;
+}
+
+/* Cursor pointer (mãozinha) — elementos interativos */
 a,
 button,
-input,
+summary,
+label[for],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
 select,
+[role="button"],
+[role="link"],
+[role="tab"],
+[role="menuitem"],
+[role="option"],
+[tabindex]:not([tabindex="-1"]),
+.timeline-nav__dot,
+.mobile-nav__dot {
+  cursor: url('/cursor-pointer.png') 14 6, pointer !important;
+}
+
+/* Input de texto mantém cursor de texto nativo */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
 textarea,
-[role="button"] {
-  cursor: url('/Cursor.svg') 11 3, auto !important;
+[contenteditable="true"] {
+  cursor: text !important;
 }
 
 

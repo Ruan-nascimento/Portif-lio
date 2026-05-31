@@ -28,8 +28,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Scroll to explore",
     },
     "hero.description": {
-        pt: "Desenvolvedor e criador de projetos web. Construo aplicações com foco em clareza, organização e experiência do usuário.",
-        en: "Developer and web project creator. I build applications focused on clarity, organization and user experience.",
+        pt: "Programador NodeJS, TypeScript, Python e GoLang. Construo aplicações com foco em clareza, organização e experiência do usuário.",
+        en: "Programmer NodeJS, TypeScript, Python and GoLang. I build applications focused on clarity, organization and user experience.",
     },
 
     // ── About ──
@@ -65,6 +65,11 @@ export const translations: Record<string, Record<Locale, string>> = {
         pt: "Clareza",
         en: "Clarity",
     },
+    "about.highlight.security": {
+        pt: "Segurança",
+        en: "Security"
+    },
+
     "about.highlight.organization": {
         pt: "Organização",
         en: "Organization",
@@ -76,6 +81,20 @@ export const translations: Record<string, Record<Locale, string>> = {
     "about.highlight.delivery": {
         pt: "Entrega",
         en: "Delivery",
+    },
+
+    "about.me": {
+        pt: "Sempre amei escrever  não por vaidade simples, mas por esse antigo desejo de vestir a alma com grandeza. Brinquei de ser gente grande, de ser homem entendido, de carregar nos olhos alguma luz que ainda me faltava. Sempre quis ser bom; mais que bom, quis ser melhor. Persegui aquilo que, de tão distante, parecia feito de névoa e impossível. E ainda que minhas mãos jamais tocassem esse horizonte, eu já me daria por honrado apenas por ter caminhado em sua direção, sangrando os pés pela fé daquilo em que acreditei.",
+        en: "I always loved to write  not out of simple vanity, but from that old desire to dress my soul in greatness. I played at being a grown-up, at being an knowledgeable man, at carrying in my eyes some light that I still lacked. I always wanted to be good; more than good, I wanted to be better. I pursued what, from so far away, seemed made of mist and impossible. And even if my hands never touched that horizon, I would already consider myself honored just for having walked in its direction, my feet bleeding for the faith of what I believed in."
+    },
+    "about.me2": {
+        pt: "Escrever código, para mim, é mais que técnica: é arte lavrada em silêncio, é poesia literária erguida em tempos de guerra. É terapia disfarçada de lógica, orgulho escondido entre chaves, vírgulas e linhas quebradas. É a conquista miúda que ninguém vê, o milagre discreto de fazer nascer ordem onde antes havia erro. É enfrentar falhas constantes e, ainda assim, permanecer. É liberdade aprisionada em sintaxe, é pensamento feito máquina, é o canto da alvorada rompendo a noite escura da dúvida.",
+        en: "Writing code, for me, is more than technique: it's art carved in silence, it's literary poetry raised in times of war. It's therapy disguised as logic, pride hidden between braces, commas, and broken lines. It's the small conquest that no one sees, the discreet miracle of bringing order where there was once error. It's facing constant failures and still remaining. It's freedom imprisoned in syntax, it's thought made machine, it's the song of dawn breaking through the dark night of doubt."
+    },
+
+    "about.title2": {
+        pt: "Pedaços de Mim",
+        en: "Pieces of Me",
     },
 
     // ── Timeline ──

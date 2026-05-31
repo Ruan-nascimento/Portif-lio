@@ -1,0 +1,19 @@
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Portfolio cursor pointer grayscale</title>
+  <defs>
+    <linearGradient id="hand" x1="10" y1="4" x2="24" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3F4F5"/>
+      <stop offset="0.55" stop-color="#656D76"/>
+      <stop offset="1" stop-color="#181A1D"/>
+    </linearGradient>
+    <filter id="shadow" x="-35%" y="-35%" width="180%" height="180%">
+      <feDropShadow dx="1.1" dy="1.7" stdDeviation="1.05" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.8 3.6C16.25 3.6 17.35 4.72 17.35 6.15V14.15L18.38 12.95C19.18 12.02 20.57 11.88 21.52 12.66C21.97 13.03 22.24 13.52 22.34 14.05C23.15 13.54 24.23 13.57 25.02 14.22C25.7 14.78 25.99 15.64 25.85 16.45C26.62 16.16 27.53 16.29 28.18 16.86C29.04 17.62 29.18 18.93 28.48 19.85L23.55 26.38C21.95 28.5 19.42 29.74 16.76 29.74H14.92C11.32 29.74 8.22 27.23 7.46 23.72L6.1 17.42C5.78 15.95 6.88 14.54 8.39 14.49C9.58 14.45 10.63 15.22 10.96 16.35L12.25 20.78V6.15C12.25 4.72 13.36 3.6 14.8 3.6Z" fill="url(#hand)" stroke="#FFFFFF" stroke-width="4"/>
+    <path d="M14.8 3.6C16.25 3.6 17.35 4.72 17.35 6.15V14.15L18.38 12.95C19.18 12.02 20.57 11.88 21.52 12.66C21.97 13.03 22.24 13.52 22.34 14.05C23.15 13.54 24.23 13.57 25.02 14.22C25.7 14.78 25.99 15.64 25.85 16.45C26.62 16.16 27.53 16.29 28.18 16.86C29.04 17.62 29.18 18.93 28.48 19.85L23.55 26.38C21.95 28.5 19.42 29.74 16.76 29.74H14.92C11.32 29.74 8.22 27.23 7.46 23.72L6.1 17.42C5.78 15.95 6.88 14.54 8.39 14.49C9.58 14.45 10.63 15.22 10.96 16.35L12.25 20.78V6.15C12.25 4.72 13.36 3.6 14.8 3.6Z" fill="url(#hand)" stroke="#111315" stroke-width="1.45"/>
+    <path d="M17.35 14.15V20.55M22.33 14.05L20.35 20.98M25.84 16.45L23.15 22.05" stroke="#111315" stroke-opacity="0.55" stroke-width="1.25"/>
+    <path d="M13.9 6.1C13.9 5.58 14.28 5.2 14.8 5.2C15.32 5.2 15.7 5.58 15.7 6.1V15.35" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.2"/>
+  </g>
+</svg>
