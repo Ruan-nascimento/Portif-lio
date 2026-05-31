@@ -142,32 +142,24 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Projects",
     },
     "projects.subtitle": {
-        pt: "Sistemas e aplicações que construí e trabalhei.",
-        en: "Systems and applications I've built and worked on.",
-    },
-    "projects.filter.all": {
-        pt: "Todos",
-        en: "All",
-    },
-    "projects.filter.completed": {
-        pt: "Concluídos",
-        en: "Completed",
-    },
-    "projects.filter.worked": {
-        pt: "Trabalhei",
-        en: "Worked on",
-    },
-    "projects.status.completed": {
-        pt: "Concluído",
-        en: "Completed",
-    },
-    "projects.status.worked": {
-        pt: "Trabalhei",
-        en: "Worked on",
+        pt: "Repositórios públicos carregados direto do GitHub.",
+        en: "Public repositories loaded directly from GitHub.",
     },
     "projects.btn.code": {
         pt: "Código",
         en: "Code",
+    },
+    "projects.error": {
+        pt: "Não foi possível carregar os projetos. Tente novamente.",
+        en: "Could not load projects. Please try again.",
+    },
+    "projects.retry": {
+        pt: "Tentar novamente",
+        en: "Try again",
+    },
+    "projects.empty": {
+        pt: "Nenhum projeto encontrado no momento.",
+        en: "No projects found at the moment.",
     },
 
     // ── GitHub ──
