@@ -36,6 +36,15 @@ const languageColors: Record<string, string> = {
     Swift: "#F05138",
 };
 
+const projectSlugs: Record<string, string> = {
+    "morada-client": "morada-app",
+    "morada-apirest": "morada-app",
+    "guia_local_inteligente-client": "guia-local-inteligente",
+    "guia_local_inteligente-apirest": "guia-local-inteligente",
+    "alugando-salas": "alugando-salas",
+    "freertos---demo": "freertos-demo"
+};
+
 
 function formatRelativeDate(dateStr: string, locale: string): string {
     const date = new Date(dateStr);
@@ -257,7 +266,7 @@ export default function ProjectsSection() {
                                     )}
                                 </CardBody>
 
-                                <CardFooter className="flex gap-2 px-6 pb-5 pt-0">
+                                <CardFooter className="flex flex-wrap gap-2 px-6 pb-5 pt-0">
                                     <Button
                                         as={Link}
                                         href={project.repoUrl}
@@ -269,18 +278,31 @@ export default function ProjectsSection() {
                                     >
                                         {t("projects.btn.code")}
                                     </Button>
-                                    {project.homepage && (
+                                    {projectSlugs[project.name.toLowerCase()] ? (
                                         <Button
                                             as={Link}
-                                            href={project.homepage}
-                                            isExternal
+                                            href={`/projetos/${projectSlugs[project.name.toLowerCase()]}`}
                                             size="sm"
                                             variant="flat"
                                             className="bg-sky-500/10 text-sky-300 hover:bg-sky-500/20"
                                             startContent={<FiExternalLink size={14} />}
                                         >
-                                            Demo
+                                            {t("project.view_details")}
                                         </Button>
+                                    ) : (
+                                        project.homepage && (
+                                            <Button
+                                                as={Link}
+                                                href={project.homepage}
+                                                isExternal
+                                                size="sm"
+                                                variant="flat"
+                                                className="bg-sky-500/10 text-sky-300 hover:bg-sky-500/20"
+                                                startContent={<FiExternalLink size={14} />}
+                                            >
+                                                Demo
+                                            </Button>
+                                        )
                                     )}
                                 </CardFooter>
                             </Card>

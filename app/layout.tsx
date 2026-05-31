@@ -6,6 +6,7 @@ import TimelineNav from "@/components/TimelineNav";
 import LanguageToggle from "@/components/LanguageToggle";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import StructuredData from "@/components/StructuredData";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -16,16 +17,80 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ruan Carlos — Portfólio",
+  metadataBase: new URL("https://www.euruancarlos.com"),
+  title: {
+    default: "Ruan Carlos | Desenvolvedor Full Stack",
+    template: "%s | Ruan Carlos | Desenvolvedor Full Stack",
+  },
   description:
-    "Portfólio pessoal de Ruan Carlos — Desenvolvedor web criando aplicações com foco em clareza, organização e experiência do usuário.",
-  keywords: ["Ruan Carlos", "desenvolvedor", "portfólio", "web", "Next.js", "React"],
-  authors: [{ name: "Ruan Carlos" }],
+    "Portfólio de Ruan Carlos, desenvolvedor Full Stack especializado em React, Next.js, TypeScript, Node.js, APIs, bancos de dados e aplicações web modernas.",
+  keywords: [
+    "Ruan Carlos",
+    "Ruan Carlos Nascimento",
+    "Desenvolvedor Full Stack",
+    "Desenvolvedor Web",
+    "Programador React",
+    "Desenvolvedor Next.js",
+    "Desenvolvedor TypeScript",
+    "Desenvolvedor Node.js",
+    "Portfólio Desenvolvedor",
+    "Desenvolvedor em Maceió",
+    "Desenvolvedor em Alagoas",
+    "Aplicações Web",
+    "APIs REST",
+    "Prisma",
+    "PostgreSQL",
+    "React Native",
+    "GitHub",
+  ],
+  authors: [{ name: "Ruan Carlos", url: "https://www.euruancarlos.com" }],
+  creator: "Ruan Carlos",
+  publisher: "Ruan Carlos",
+  applicationName: "Ruan Carlos Portfolio",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Ruan Carlos — Portfólio",
-    description: "Desenvolvedor e criador de projetos web.",
-    type: "website",
+    title: "Ruan Carlos | Desenvolvedor Full Stack",
+    description:
+      "Portfólio de Ruan Carlos, desenvolvedor Full Stack especializado em React, Next.js, TypeScript, Node.js, APIs e aplicações web modernas.",
+    url: "https://www.euruancarlos.com",
+    siteName: "Ruan Carlos | Desenvolvedor Full Stack",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ruan Carlos | Desenvolvedor Full Stack - React, Next.js, TypeScript, Node.js",
+      },
+    ],
     locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ruan Carlos | Desenvolvedor Full Stack",
+    description:
+      "Portfólio de Ruan Carlos, desenvolvedor Full Stack especializado em React, Next.js, TypeScript, Node.js, APIs e aplicações web modernas.",
+    images: ["/og-image.png"],
+    creator: "@ruan_carlosrcn",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -42,6 +107,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Providers>
             <LanguageProvider>
+              <StructuredData />
               <AnimatedBackground />
               <ParticleField />
               <LanguageToggle />

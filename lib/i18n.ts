@@ -28,8 +28,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Scroll to explore",
     },
     "hero.description": {
-        pt: "Programador NodeJS, TypeScript, Python e GoLang. Construo aplicações com foco em clareza, organização e experiência do usuário.",
-        en: "Programmer NodeJS, TypeScript, Python and GoLang. I build applications focused on clarity, organization and user experience.",
+        pt: "Desenvolvedor Full Stack focado em criar aplicações web modernas, interfaces responsivas e sistemas bem estruturados. Trabalho com React, Next.js, TypeScript, Node.js e bancos de dados para transformar ideias em experiências digitais funcionais, organizadas e escaláveis.",
+        en: "Full Stack Developer focused on creating modern web applications, responsive interfaces, and well-structured systems. I work with React, Next.js, TypeScript, Node.js, and databases to transform ideas into functional, organized, and scalable digital experiences.",
     },
 
     // ── About ──
@@ -42,24 +42,24 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Who I am",
     },
     "about.card1.content": {
-        pt: "Sou o Ruan Carlos. Gosto de construir soluções práticas e evoluir com projetos reais, sempre buscando um visual bem feito e código organizado.",
-        en: "I'm Ruan Carlos. I enjoy building practical solutions and evolving through real projects, always striving for polished visuals and clean code.",
+        pt: "Sou Ruan Carlos. Desenvolvo aplicações web e mobile focando em clareza, estrutura e experiência do usuário, sempre buscando um visual bem feito e código organizado.",
+        en: "I'm Ruan Carlos. I develop web and mobile applications focusing on clarity, structure, and user experience, always striving for polished visuals and organized code.",
     },
     "about.card2.title": {
         pt: "O que eu faço",
         en: "What I do",
     },
     "about.card2.content": {
-        pt: "Crio aplicações web e sistemas (ex.: filas, autenticação, gestão) com foco em usabilidade e experiências claras.",
-        en: "I create web applications and systems (e.g. queues, auth, management) focused on usability and clear experiences.",
+        pt: "Crio ecossistemas digitais completos, desde APIs REST robustas e bancos de dados relacionais até interfaces frontend dinâmicas e aplicativos móveis responsivos.",
+        en: "I create complete digital ecosystems, from robust REST APIs and relational databases to dynamic frontend interfaces and responsive mobile applications.",
     },
     "about.card3.title": {
         pt: "Por que eu faço",
         en: "Why I do it",
     },
     "about.card3.content": {
-        pt: "Porque curto transformar problema em produto funcionando. Cada projeto vira um degrau: mais técnica, mais repertório e mais confiança no que entrego.",
-        en: "Because I love turning problems into working products. Every project is a step forward: more technique, more repertoire, and more confidence in what I deliver.",
+        pt: "Acredito que a tecnologia deve servir a um propósito real. Transformo problemas complexos em produtos funcionais, usando cada projeto como um degrau de evolução constante.",
+        en: "I believe technology should serve a real purpose. I transform complex problems into functional products, using each project as a stepping stone for constant growth.",
     },
     "about.highlight.clarity": {
         pt: "Clareza",
@@ -69,7 +69,6 @@ export const translations: Record<string, Record<Locale, string>> = {
         pt: "Segurança",
         en: "Security"
     },
-
     "about.highlight.organization": {
         pt: "Organização",
         en: "Organization",
@@ -79,13 +78,13 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "User experience",
     },
     "about.highlight.delivery": {
-        pt: "Entrega",
-        en: "Delivery",
+        pt: "Entrega de Valor",
+        en: "Value Delivery",
     },
 
     "about.me": {
-        pt: "Sempre amei escrever  não por vaidade simples, mas por esse antigo desejo de vestir a alma com grandeza. Brinquei de ser gente grande, de ser homem entendido, de carregar nos olhos alguma luz que ainda me faltava. Sempre quis ser bom; mais que bom, quis ser melhor. Persegui aquilo que, de tão distante, parecia feito de névoa e impossível. E ainda que minhas mãos jamais tocassem esse horizonte, eu já me daria por honrado apenas por ter caminhado em sua direção, sangrando os pés pela fé daquilo em que acreditei.",
-        en: "I always loved to write  not out of simple vanity, but from that old desire to dress my soul in greatness. I played at being a grown-up, at being an knowledgeable man, at carrying in my eyes some light that I still lacked. I always wanted to be good; more than good, I wanted to be better. I pursued what, from so far away, seemed made of mist and impossible. And even if my hands never touched that horizon, I would already consider myself honored just for having walked in its direction, my feet bleeding for the faith of what I believed in."
+        pt: "Sempre amei escrever — não por vaidade simples, mas por esse antigo desejo de vestir a alma com grandeza. Brinquei de ser gente grande, de ser homem entendido, de carregar nos olhos alguma luz que ainda me faltava. Sempre quis ser bom; mais que bom, quis ser melhor. Persegui aquilo que, de tão distante, parecia feito de névoa e impossível. E ainda que minhas mãos jamais tocassem esse horizonte, eu já me daria por honrado apenas por ter caminhado em sua direção, sangrando os pés pela fé daquilo em que acreditei.",
+        en: "I always loved to write — not out of simple vanity, but from that old desire to dress my soul in greatness. I played at being a grown-up, at being an knowledgeable man, at carrying in my eyes some light that I still lacked. I always wanted to be good; more than good, I wanted to be better. I pursued what, from so far away, seemed made of mist and impossible. And even if my hands never touched that horizon, I would already consider myself honored just for having walked in its direction, my feet bleeding for the faith of what I believed in."
     },
     "about.me2": {
         pt: "Escrever código, para mim, é mais que técnica: é arte lavrada em silêncio, é poesia literária erguida em tempos de guerra. É terapia disfarçada de lógica, orgulho escondido entre chaves, vírgulas e linhas quebradas. É a conquista miúda que ninguém vê, o milagre discreto de fazer nascer ordem onde antes havia erro. É enfrentar falhas constantes e, ainda assim, permanecer. É liberdade aprisionada em sintaxe, é pensamento feito máquina, é o canto da alvorada rompendo a noite escura da dúvida.",
@@ -93,8 +92,8 @@ export const translations: Record<string, Record<Locale, string>> = {
     },
 
     "about.title2": {
-        pt: "Pedaços de Mim",
-        en: "Pieces of Me",
+        pt: "Filosofia Pessoal",
+        en: "Personal Philosophy",
     },
 
     // ── Timeline ──
@@ -119,8 +118,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "UNINASSAU University Center",
     },
     "timeline.item1.description": {
-        pt: "Aprendizado e Desenvolvimento desde boas práticas, banco de dados, web, mobile, arquitetura e system design, até algoritmos e estruturas de dados.",
-        en: "Learning and Development from best practices, databases, web, mobile, architecture and system design, to algorithms and data structures.",
+        pt: "Aprendizado e desenvolvimento desde boas práticas, banco de dados, web, mobile, arquitetura e system design, até algoritmos e estruturas de dados.",
+        en: "Learning and development from best practices, databases, web, mobile, architecture and system design, to algorithms and data structures.",
     },
     "timeline.item3.date": {
         pt: "2021 - 2022",
@@ -135,7 +134,7 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "DNC Technical School",
     },
     "timeline.item3.description": {
-        pt: "Aprofundamento e analise de dados e estatistica com python, machine learning, organização e preparação dos dados e métodos ágeis",
+        pt: "Aprofundamento e análise de dados e estatística com Python, machine learning, organização e preparação dos dados e métodos ágeis.",
         en: "In-depth analysis of data and statistics using Python, machine learning, data organization and preparation, and agile methodologies.",
     },
     "timeline.item2.date": {
@@ -151,8 +150,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "The New Programmer, Online Programming School",
     },
     "timeline.item2.description": {
-        pt: "Aprendendo Desde Lógica básica de Programação, até projetos simples em Typescript, React, Node.js, banco de dados SQL",
-        en: "Learning from basic programming logic to simple projects in Typescript, React, Node.js, SQL databases.",
+        pt: "Desenvolvimento prático e conceitos avançados em JavaScript, TypeScript, React, Node.js e banco de dados SQL/NoSQL.",
+        en: "Practical development and advanced concepts in JavaScript, TypeScript, React, Node.js, and SQL/NoSQL databases.",
     },
 
     // ── Projects ──
@@ -205,8 +204,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Contact",
     },
     "contact.subtitle": {
-        pt: "Quer conversar? Me manda uma mensagem ou me encontra nas redes.",
-        en: "Want to chat? Send me a message or find me on social media.",
+        pt: "Tem uma oportunidade, ideia ou projeto em mente? Entre em contato comigo. Estou aberto a colaborações, desafios e novas experiências profissionais.",
+        en: "Have an opportunity, idea, or project in mind? Get in touch with me. I'm open to collaborations, challenges, and new professional experiences.",
     },
     "contact.form.name": {
         pt: "Seu nome",
@@ -229,8 +228,8 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Write your message here...",
     },
     "contact.form.submit": {
-        pt: "Enviar",
-        en: "Send",
+        pt: "Enviar mensagem",
+        en: "Send Message",
     },
     "contact.form.sent": {
         pt: "Redirecionando...",
@@ -241,12 +240,12 @@ export const translations: Record<string, Record<Locale, string>> = {
         en: "Hi Ruan Carlos, my name is {name}...\n\n{message}",
     },
     "contact.social.title": {
-        pt: "Me encontra aqui",
-        en: "Find me here",
+        pt: "Redes e Conexões",
+        en: "Networks & Connections",
     },
     "contact.social.description": {
-        pt: "Estou sempre aberto a novas conexões. Me chama em qualquer uma dessas redes — respondo rápido!",
-        en: "I'm always open to new connections. Reach out on any of these — I reply fast!",
+        pt: "Me chame em qualquer uma dessas redes ou envie uma mensagem direta via WhatsApp ao lado. Costumo responder rapidamente!",
+        en: "Reach out on any of these networks or send a direct message via WhatsApp on the side. I usually reply quickly!",
     },
     "contact.mailto.subject": {
         pt: "Contato via Portfólio",
@@ -309,5 +308,155 @@ export const translations: Record<string, Record<Locale, string>> = {
     "notFound.goBack": {
         pt: "Página Anterior",
         en: "Go Back",
+    },
+
+    // ── Project Details (New Chaves) ──
+    "project.details": {
+        pt: "Detalhes do Projeto",
+        en: "Project Details",
+    },
+    "project.tech": {
+        pt: "Tecnologias Utilizadas",
+        en: "Technologies Used",
+    },
+    "project.features_label": {
+        pt: "Funcionalidades Principais",
+        en: "Key Features",
+    },
+    "project.learned_label": {
+        pt: "O que Aprendi",
+        en: "What I Learned",
+    },
+    "project.problem_label": {
+        pt: "O Problema Que Resolve",
+        en: "The Problem It Solves",
+    },
+    "project.visit_demo": {
+        pt: "Visitar Aplicação",
+        en: "Visit Demo",
+    },
+    "project.back_projects": {
+        pt: "Voltar para Projetos",
+        en: "Back to Projects",
+    },
+    "project.back_home": {
+        pt: "Voltar ao Início",
+        en: "Back to Home",
+    },
+    "project.view_details": {
+        pt: "Ver Detalhes",
+        en: "View Details",
+    },
+    "project.page_title": {
+        pt: "Projetos em Destaque",
+        en: "Featured Projects",
+    },
+    "project.page_subtitle": {
+        pt: "Explore alguns dos principais sistemas, aplicações e arquiteturas de código que desenvolvi.",
+        en: "Explore some of the main systems, applications, and code architectures I have developed.",
+    },
+
+    // ── Project: Morada App ──
+    "project.morada.title": {
+        pt: "Morada App",
+        en: "Morada App",
+    },
+    "project.morada.subtitle": {
+        pt: "Ecossistema completo para aluguel e reserva de imóveis (Mobile & API REST)",
+        en: "Complete ecosystem for property rental and reservation (Mobile & REST API)",
+    },
+    "project.morada.description": {
+        pt: "Um aplicativo de aluguel e reserva de imóveis desenvolvido para conectar de forma ágil inquilinos e proprietários. A solução conta com um aplicativo mobile híbrido de alta performance e uma API REST robusta responsável por autenticação, armazenamento e processamento das regras de negócio.",
+        en: "A property rental and reservation app developed to agilely connect tenants and owners. The solution features a high-performance hybrid mobile app and a robust REST API responsible for authentication, storage, and processing business rules.",
+    },
+    "project.morada.problem": {
+        pt: "Imobiliárias tradicionais utilizam processos excessivamente burocráticos, lentos e baseados em papel para reservas simples de moradia. O Morada App digitaliza e simplifica este fluxo, permitindo que usuários vejam locais disponíveis, façam ofertas e gerenciem reservas com poucos toques no celular.",
+        en: "Traditional real estate agencies use excessively bureaucratic, slow, and paper-based processes for simple housing reservations. Morada App digitalizes and simplifies this flow, allowing users to view available properties, make offers, and manage bookings with a few taps on their phone.",
+    },
+    "project.morada.learned": {
+        pt: "Desenvolver esse projeto consolidou minhas habilidades em arquitetar soluções de ponta a ponta (Full Stack). Aprendi a projetar rotas seguras com JWT no back-end Express, persistência transacional com Prisma ORM e PostgreSQL, tratamento de imagens no mobile e gerenciamento de estados assíncronos no React Native com Expo.",
+        en: "Developing this project consolidated my skills in architecting end-to-end (Full Stack) solutions. I learned to design secure routes with JWT in the Express back-end, transactional persistence with Prisma ORM and PostgreSQL, image processing in mobile, and asynchronous state management in React Native with Expo.",
+    },
+    "project.morada.features": {
+        pt: "Autenticação segura via Token JWT • Busca avançada de imóveis com filtros por tipo e valor • Favoritos persistidos por usuário • Painel completo de reservas com histórico • Design mobile moderno com feedback táctil fluido",
+        en: "Secure authentication via JWT Token • Advanced property search with filters by type and value • Persisted user bookmarks • Complete reservation dashboard with history • Modern mobile design with fluid tactile feedback",
+    },
+
+    // ── Project: Guia Local Inteligente ──
+    "project.guia.title": {
+        pt: "Guia Local Inteligente",
+        en: "Guia Local Inteligente",
+    },
+    "project.guia.subtitle": {
+        pt: "Plataforma web de geolocalização e recomendação comercial (Vite & API REST)",
+        en: "Web platform for geolocation and commercial recommendation (Vite & REST API)",
+    },
+    "project.guia.description": {
+        pt: "Uma aplicação web moderna criada para impulsionar o comércio regional e facilitar o turismo local. O projeto fornece uma interface responsiva, interativa e de carregamento extremamente rápido que exibe pontos turísticos, rotas, contatos e avaliações de estabelecimentos comerciais locais.",
+        en: "A modern web application built to boost regional commerce and facilitate local tourism. The project provides a responsive, interactive, and extremely fast-loading interface that displays local sights, routes, contacts, and business reviews.",
+    },
+    "project.guia.problem": {
+        pt: "Informações sobre pequenos comércios e locais históricos regionais frequentemente estão dispersas ou desatualizadas na internet, dificultando a vida de visitantes e moradores. O Guia Local reúne, categoriza e geolocaliza esses dados de forma centralizada e confiável.",
+        en: "Information about small local businesses and regional historical sites is often scattered or outdated on the internet, making life difficult for visitors and residents. Guia Local gathers, categorizes, and geolocates this data in a centralized and reliable way.",
+    },
+    "project.guia.learned": {
+        pt: "Com este projeto, aprofundei práticas de componentização avançada no React 19, empacotamento otimizado de assets com o Vite, TypeScript estrito para tipar as respostas de APIs de mapas, e a construção de endpoints otimizados no Express com paginação e busca textual indexada.",
+        en: "With this project, I deepened advanced componentization practices in React 19, optimized asset packaging with Vite, strict TypeScript for typing map API responses, and building optimized endpoints in Express with pagination and indexed text search.",
+    },
+    "project.guia.features": {
+        pt: "Busca preditiva inteligente com autocomplete • Rotas interativas com mapas • Sistema de avaliações com classificação por estrelas • Painel de cadastro para novos comércios • Layout responsivo adaptado para dispositivos móveis e desktops",
+        en: "Smart predictive search with autocomplete • Interactive map routes • Review system with star ratings • Management panel to register new businesses • Responsive layout adapted for mobile and desktop screens",
+    },
+
+    // ── Project: Alugando Salas ──
+    "project.salas.title": {
+        pt: "Alugando Salas",
+        en: "Alugando Salas",
+    },
+    "project.salas.subtitle": {
+        pt: "Sistema de gerenciamento e controle de reservas acadêmicas em Python",
+        en: "Academic reservation and management system in Python",
+    },
+    "project.salas.description": {
+        pt: "Aplicação voltada para instituições acadêmicas que necessitam organizar seus espaços físicos. Desenvolvido em Python, o sistema gerencia o cadastro de recursos, salas de aula, laboratórios de informática, além de processar as reservas de horários garantindo que conflitos de alocação não ocorram.",
+        en: "Application aimed at academic institutions that need to organize their physical spaces. Developed in Python, the system manages the registration of resources, classrooms, computer labs, and processes time slots, ensuring that allocation conflicts do not occur.",
+    },
+    "project.salas.problem": {
+        pt: "A alocação de salas em escolas e universidades geralmente sofre com conflitos de horários em que dois professores ou turmas tentam reservar o mesmo laboratório simultaneamente. O projeto resolve esse problema através de algoritmos de validação temporal e relatórios de ocupação.",
+        en: "Classroom allocation in schools and universities often suffers from scheduling conflicts where two teachers or classes try to reserve the same lab simultaneously. The project solves this problem through time-validation algorithms and occupancy reports.",
+    },
+    "project.salas.learned": {
+        pt: "Este projeto foi fundamental para solidificar conceitos de algoritmos estruturados, tratamento robusto de exceções em tempo de execução, modelagem lógica de entidades inter-relacionadas e manipulação segura de sistemas de arquivos locais para persistência sem banco de dados complexo.",
+        en: "This project was fundamental to solidifying structured algorithm concepts, robust runtime exception handling, logical modeling of interrelated entities, and safe manipulation of local file systems for persistence without a complex database.",
+    },
+    "project.salas.features": {
+        pt: "Cadastro detalhado de ambientes e recursos disponíveis • Algoritmo de validação contra choque de horários • Relatórios gerenciais de ocupação e horários ociosos • Interface interativa e simplificada com tratamento de erros de digitação",
+        en: "Detailed registration of available rooms and resources • Conflict-checking scheduling validation algorithm • Management reports on occupancy and idle hours • Interactive and simplified interface with input error handling",
+    },
+
+    // ── Project: FreeRTOS Demo ──
+    "project.freertos.title": {
+        pt: "FreeRTOS Demo",
+        en: "FreeRTOS Demo",
+    },
+    "project.freertos.subtitle": {
+        pt: "Firmware embarcado utilizando sistema operacional de tempo real (RTOS)",
+        en: "Embedded firmware using a real-time operating system (RTOS)",
+    },
+    "project.freertos.description": {
+        pt: "Demonstração prática de desenvolvimento de firmware usando o kernel FreeRTOS. O projeto aborda a divisão de software embarcado em múltiplas tarefas concorrentes, cada uma com prioridades específicas, gerenciando recursos críticos com sincronização avançada.",
+        en: "Practical demonstration of firmware development using the FreeRTOS kernel. The project addresses splitting embedded software into multiple concurrent tasks, each with specific priorities, managing critical resources with advanced synchronization.",
+    },
+    "project.freertos.problem": {
+        pt: "Programar sistemas embarcados sem um RTOS (super-loop comum) dificulta o determinismo e o processamento de tarefas em tempo real, onde certos eventos precisam ser respondidos imediatamente sem atrasos causados por outras rotinas. O FreeRTOS resolve isso com escalonamento preemptivo.",
+        en: "Programming embedded systems without an RTOS (a common super-loop) hinders determinism and real-time task processing, where certain events must be responded to immediately without delays caused by other routines. FreeRTOS solves this with preemptive scheduling.",
+    },
+    "project.freertos.learned": {
+        pt: "Este desenvolvimento consolidou minha compreensão sobre sistemas operacionais em baixo nível. Aprendi sobre troca de contexto (context switching), prioridades de tarefas, compartilhamento seguro de recursos com Mutex, sincronização com Semáforos e prevenção de problemas clássicos como inversão de prioridade e deadlock.",
+        en: "This development consolidated my understanding of low-level operating systems. I learned about context switching, task priorities, safe resource sharing with Mutex, synchronization with Semaphores, and preventing classic problems like priority inversion and deadlock.",
+    },
+    "project.freertos.features": {
+        pt: "Criação de tarefas simultâneas preemptivas • Sincronização e exclusão mútua por Mutex • Comunicação e passagem de mensagens usando Filas (Queues) • Monitoramento em tempo real de estouro de pilha (stack overflow)",
+        en: "Creation of concurrent preemptive tasks • Synchronization and mutual exclusion via Mutex • Communication and message passing using Queues • Real-time task stack overflow monitoring",
     },
 };
